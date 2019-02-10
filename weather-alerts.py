@@ -44,4 +44,9 @@ def getForecast():
 		print "Sunset:", dailyData.sunsetTime
 
 
-getForecast()
+schedule.every().day.at("11:30").do(getForecast)
+
+while True:
+    print "Starting weather-alerts script..."
+    schedule.run_pending()
+    time.sleep(60)
